@@ -1,0 +1,565 @@
+#first-header {
+	background-color: rgb(255, 251, 166);
+}
+
+.first-results {
+	background-color: rgb(255, 251, 166, 0.8);
+}
+
+#second-header {
+	background-color: rgb(192,192,192);
+}
+
+.second-results {
+	background-color: rgb(192,192,192, 0.8);
+}
+
+#third-header {
+	background-color: rgb(255, 174, 43);
+}
+
+.third-results {
+	background-color: rgb(255, 174, 43, 0.8);
+}
+
+#fourth-header {
+	background-color: rgb(255, 112, 219);
+}
+
+.fourth-results {
+	background-color: rgb(255, 112, 219, 0.8);
+}
+
+.classicCurrency:not(#star-header):not(#coin-header), 
+.ministarCurrency:not(#ministar-header),
+.allyGame:not(#ally-header) {
+	background-color: rgb(224, 224, 224, 0.8);
+}
+
+#star-header, #coin-header, 
+#ministar-header, #ally-header {
+	background-color: rgb(224, 224, 224);
+}
+
+td:not(.classicCurrency):not(.ministarCurrency):not(.allyGame):not(.first-results):not(.second-results):not(.third-results):not(.fourth-results):not(.playerImage) {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.partner-party {
+	display: none;
+}
+
+@media (min-width: 949px) {
+	@font-face {
+	  font-family: mp9;
+	  src: url('mp9 font.ttf');
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		height: 100vh;
+		background: #000;
+	}
+
+	#background {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		object-fit: fill;
+		z-index: -1;
+	}
+
+	#calculator {
+		text-align: center;
+		margin: auto;
+		padding: 0.5vw;
+		border-radius: 0.625vw;
+		font-family: 'mp9', sans-serif;
+		width: 95vw;
+		background: repeating-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 235, 235, 0.85) 3%);
+	}
+
+	#informational-page {
+		text-align: center;
+		margin: auto;
+		padding: 0.5vw;
+		border-radius: 0.625vw;
+		font-family: 'mp9', sans-serif;
+		width: 70vw;
+		background: repeating-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 235, 235, 0.85) 3%);
+	}
+
+	label {
+		font-family: 'mp9', sans-serif;
+		font-size: 0.5vw;
+	}
+
+	table {
+		width: 95%;
+		overflow-x: scroll;
+		margin: 1.5vh auto;
+		border-spacing: 0;
+		border: 3px solid black;
+	}
+
+	th, td {
+		padding: 0.1125vw;
+		text-align: center;
+		border: 0.15vw solid #ddd;
+		font-weight: bold;
+		color: black;
+		border: 1px solid black;
+	}
+
+	th {
+		background-color: #f2f2f2;
+		font-size: 0.5vw;
+	}
+
+	td {
+		font-size: 1.1vw;
+		height: 3.5vw;
+	}
+
+	h3 {
+		font-size: 1.5em;
+		font-family: arial;
+		text-align: left;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-family: arial;
+		text-align: left;
+	}
+
+	h1 {
+		font-size: 1.8em;
+	}
+
+	#simulateButton {
+		padding: 0.5vw;
+		text-align: center;
+		font-family: 'mp9';
+		font-size: 1.75vw;
+		font-weight: bold;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 1.2vw;
+		border: 4px solid black;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+	}
+
+	/* Hover state */
+	#simulateButton:hover {
+		background-color: #45a049;
+	}
+
+	/* Active (click) state */
+	#simulateButton:active {
+		background-color: #3e8e41;
+	}
+
+	input[type="checkbox"] {
+		width: 0.8vw;
+		height: 0.8vw;
+		display: block;
+		margin: 0 auto;
+		transform: scale(3);
+	}
+
+	input[type="number"] {
+		width: 2.1875vw;
+		height: 2.1875vw;
+		text-align: center;
+		font-size: 1.125vw;
+		font-weight: bold;
+		display: block;
+		margin: 0 auto;
+		border-radius: 0.8vw;
+	}
+
+	/* Chrome, Safari, Edge, Opera - Get rid of arrows in number input fields */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+
+	/* Firefox - Get rid of arrows in number input fields */
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
+
+	#chooseGameLabel {
+		margin-right: 1.25vw;
+		margin-bottom: 1.25vw;
+		font-size: 1.6vw;
+		color: black;
+		font-weight: bold;
+	}
+
+	#chooseGame {
+		margin-right: 2.5vw;
+		margin-bottom: 0.3vw;
+		margin-top: 0.25vw;
+		padding: 0.65vw;
+		line-height: normal;
+		text-align: center;
+		font-family: 'arial';
+		font-size: 2.5vw;
+		font-weight: bold;
+		background: rgba(255, 255, 255, 0.85);
+		border-radius: 0.8vw;
+		border: 0.25vw solid black;
+	}
+
+	#dk-label, #dk-select,
+	#turns-20-label, #turns-20-select,
+	#balloon-label, #balloon-select,
+	#partner-label, #partner-select,
+	.ministarCurrency, .allyGame,
+	#bonus-star-column10, #bonus-star-column11,
+	#bonus10_P1-cell, #bonus10_P2-cell,
+	#bonus10_P3-cell, #bonus10_P4-cell,
+	#super-ally-note, #rush-ally-note,
+	#table-note
+	{
+		display: none;
+	}
+
+	.header-captions {
+		font-size: 0.5vw;
+	}
+	
+	.note {
+		font-family: 'mp9';
+		font-size: 0.8vw;
+		color: black;
+	}
+
+	.extraQ {
+		font-weight: bold;
+		font-family: 'mp9';
+		font-size: 1.1vw;
+		font-weight: bold;
+		color: black;
+		padding-right: 0.7vw;
+	}
+
+	.extraSelect {
+		padding: 0.5vw;
+		text-align: center;
+		font-family: 'arial';
+		font-size: 2vw;
+		font-weight: bold;
+		background: rgba(255, 255, 255, 0.85);
+		border-radius: 0.625vw;
+		border: 0.22vw solid black;
+	}
+
+	.otherPages, .otherPagesCalc {
+		font-size: 1.5vw;
+		margin-right: 10vw;
+	}
+
+	#finalOtherPage, #finalOtherPageCalc {
+		font-size: 1.5vw;
+	}
+
+	.headerImages {
+		width: 3.5vw;
+	}
+
+	.playerImage {
+		width: 4.5vw;
+	}
+
+	hr {
+		border: 2px solid #000;
+	}
+	
+	#average-header {
+		font-size: 0.8vw;
+	}
+	
+	#player-header {
+		font-size: 1vw;
+	}
+	
+	#turns-20-label {
+		margin-left: 1.5vw;
+	}
+	
+	.results, .first-results, .second-results,
+	.third-results, .fourth-results {
+		font-size: 1.1vw;
+	}
+}
+
+@media (max-width: 948px) {
+	
+	@font-face {
+	  font-family: mp9;
+	  src: url('mp9 font.ttf');
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		height: 100vh;
+		background: #000;
+	}
+
+	#background {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		object-fit: fill;
+		z-index: -1;
+	}
+
+	#calculator {
+		text-align: center;
+		margin: auto;
+		padding: 0.6em;
+		border-radius: 0.3em;
+		font-family: 'mp9', sans-serif;
+		width: 95vw;
+		background: repeating-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 235, 235, 0.85) 2%);
+	}
+
+	#informational-page {
+		text-align: center;
+		margin: auto;
+		padding: 0.5em;
+		border-radius: 0.3em;
+		font-family: 'mp9', sans-serif;
+		width: 95vw;
+		background: repeating-linear-gradient(rgba(255, 255, 255, 0.8), rgba(235, 235, 235, 0.85) 2%);
+	}
+	
+	label {
+		font-family: 'mp9', sans-serif;
+		font-size: 0.25em;
+	}
+
+	table {
+		margin-top: 0.6em;
+		border-spacing: 0;
+		border-color: black;
+		border: 3px solid black;
+		display: block;
+		max-width: -moz-fit-content;
+		max-width: fit-content;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+
+	th, td {
+		padding: 0.1525em;
+		text-align: center;
+		border: 0.07em solid #ddd;
+		font-weight: bold;
+		color: black;
+		border: 1px solid black;
+	}
+
+	th {
+		background-color: #f2f2f2;
+	}
+
+	td {
+		font-size: 1em;
+	}
+
+	h4 {
+		font-size: 1em;
+	}
+
+	h3 {
+		font-size: 1.2em;
+		font-family: arial;
+		text-align: left;
+	}
+	
+	h2 {
+		font-size: 1.2em;
+		font-family: arial;
+		text-align: left;
+	}
+
+	h1 {
+		font-size: 1.5em;
+	}
+
+	#simulateButton {
+		margin-top: 0.3em;
+		padding: 0.25em;
+		text-align: center;
+		font-family: 'mp9';
+		font-size: 1.4em;
+		font-weight: bold;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 0.6em;
+		border: 4px solid black;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+	}
+
+	/* Hover state */
+	#simulateButton:hover {
+		background-color: #45a049;
+	}
+
+	/* Active (click) state */
+	#simulateButton:active {
+		background-color: #3e8e41;
+	}
+
+	input[type="checkbox"] {
+		width: 0.75em;
+		height: 0.75em;
+		display: block;
+		margin: 0 auto;
+		transform: scale(3);
+	}
+
+	input[type="number"] {
+		width: 2em;
+		height: 2em;
+		text-align: center;
+		font-size: 0.8em;
+		font-weight: bold;
+		display: block;
+		margin: 0 auto;
+		border-radius: 0.7em;
+	}
+
+	/* Chrome, Safari, Edge, Opera - Get rid of arrows in number input fields */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+
+	/* Firefox - Get rid of arrows in number input fields */
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
+
+	#chooseGameLabel {
+		margin-right: 0.65em;
+		margin-bottom: 0.65em;
+		font-size: 1.1em;
+		color: black;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	#chooseGame {
+		margin-bottom: 0.35em;
+		padding: 0.3em;
+		line-height: normal;
+		text-align: center;
+		font-family: 'arial';
+		font-size: 1.5em;
+		font-weight: bold;
+		background: rgba(255, 255, 255, 0.85);
+		border-radius: 0.3em;
+		border: 0.09em solid black;
+	}
+
+	#dk-label, #dk-select,
+	#turns-20-label, #turns-20-select,
+	#balloon-label, #balloon-select,
+	#partner-label, #partner-select,
+	.ministarCurrency, .allyGame,
+	#bonus-star-column10, #bonus-star-column11,
+	#bonus10_P1-cell, #bonus10_P2-cell,
+	#bonus10_P3-cell, #bonus10_P4-cell,
+	#super-ally-note, #rush-ally-note
+	{
+		display: none;
+	}
+	
+	.header-captions {
+		font-size: 0.5em;
+	}
+	
+	.note {
+		font-family: 'mp9';
+		font-size: 0.6em;
+		color: black;
+	}
+	
+	#table-note {
+		font-size: 0.5em;
+	}
+
+	.extraQ {
+		font-weight: bold;
+		font-family: 'mp9';
+		font-size: 0.8em;
+		font-weight: bold;
+		color: black;
+		padding-right: 0.35em;
+		text-align: center;
+	}
+	
+	#chooseGameLabel:after, .extraQ:after,
+	.extraSelect:after, #turns-20-label:before {
+		content: "\a";
+		white-space: pre;
+	}
+
+	.extraSelect {
+		padding: 0.25em;
+		text-align: center;
+		font-family: 'arial';
+		font-size: 1.6em;
+		font-weight: bold;
+		background: rgba(255, 255, 255, 0.85);
+		border-radius: 0.3em;
+		border: 0.045em solid black;
+	}
+	
+	.otherPages, .otherPagesCalc, #finalOtherPage, #finalOtherPageCalc {
+		font-size: 1.2em;
+	}
+	
+	.otherPages:after, .otherPagesCalc:after {
+		content: "\a";
+		white-space: pre;
+	}
+
+	.headerImages {
+		width: 2.5em;
+	}
+
+	.playerImage {
+		width: 3em;
+	}
+	
+	hr {
+		border: 2px solid #000;
+	}
+	
+	#average-header {
+		font-size: 0.5em;
+	}
+	
+	#player-header {
+		font-size: 0.5em;
+	}
+	
+	#turns-20-label {
+		margin-left: 0.75em;
+	}
+	
+	.results, .first-results, .second-results,
+	.third-results, .fourth-results {
+		font-size: 0.9em;
+	}
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+	<link rel="stylesheet" href="styles.css">
+	<script src="scripts.js"></script>
+	<title>Mario Party Bonus Star Calculator</title>
+</head>
+<body>
+    <img src="MP7 Results Fireworks.png" id="background">
+    <div id="calculator">
+		<a class="otherPagesCalc" href="MP Bonus Star Calculator About.html">About</a>
+		<a class="otherPagesCalc" href="MP Bonus Star Calculator Instructions.html">Instructions</a>
+		<a id="finalOtherPageCalc" href="MP Bonus Star Calculator Credits.html">Credits</a>
+		<hr>
+		
+		<label id="chooseGameLabel" for="chooseGame">Choose The Game:</label>
+		<select id="chooseGame" onchange="changeLayout()">
+			<option value="7">Mario Party 7</option>
+			<option value="8">Mario Party 8</option>
+			<option value="DS">Mario Party DS</option>
+			<option value="9">Mario Party 9</option>
+			<option value="10">Mario Party 10</option>
+			<option value="Star Rush">Mario Party: Star Rush</option>
+			<option value="Top 100">Mario Party: The Top 100</option>
+			<option value="Super">Super Mario Party</option>
+			<option value="Superstars" selected>Mario Party Superstars</option>
+		</select>
+
+		<label class="extraQ" id="dk-label" for="dk-select"><br>Did you play on DK's Jungle Ruins?</label>
+		<select class="extraSelect" id="dk-select" onchange="changeMinistar()">
+			<option value=0>No</option>
+			<option value=1>Yes</option>
+		</select>
+
+		<label class="extraQ" id="balloon-label" for="dk-select"><br>Did you play Balloon Bash mode?</label>
+		<select class="extraSelect" id="balloon-select" onchange="changeLayout()">
+			<option value=0>No</option>
+			<option value=1>Yes</option>
+		</select>
+		
+		<label class="extraQ" id="partner-label" for="partner-select"><br>Did you play Partner Party mode?</label>
+		<select class="extraSelect" id="partner-select" onchange="changeLayout()" style="margin-right: 1.25vw">
+			<option value=0>No</option>
+			<option value=1>Yes</option>
+		</select>
+
+		<label class="extraQ" id="turns-20-label" for="turns-20-select">Did you play with 20 or more turns?</label>
+		<select class="extraSelect" id="turns-20-select">
+			<option value=0>No</option>
+			<option value=1>Yes</option>
+		</select>
+
+		<label class="extraQ" id="turns-30-label" for="turns-30-select"><br>Did you play with 30 turns?</label>
+		<select class="extraSelect" id="turns-30-select">
+			<option value=0>No</option>
+			<option value=1>Yes</option>
+		</select>
+		
+		<label class="note" id="minigame-note" for="chooseGame"><br>Note: This game's Minigame bonus star goes to the player(s) with the most minigame *wins*, not earnings.</label>
+		
+		<label class="note" id="super-ally-note" for="chooseGame"><br>Note: Please also input number of allies each player had at the end (used for the Ally and Buddy bonuses)</label>
+		
+		<label class="note" id="rush-ally-note" for="chooseGame"><br>Note: Please also input number of allies each player had at the end (used for the Lucky Ally bonus)</label>
+		
+		<label id="table-note" for="chooseGame"><br>(Table scrolls to the right)</label>
+		
+        <table>
+            <thead>
+                <tr>
+                    <th id="player-header">Player</th>
+					<th id="star-header" class="classicCurrency"><img src="Currency Images/stars.png" class="headerImages"><br><figcaption class="header-captions">Stars</figcaption></th>
+                    <th id="coin-header" class="classicCurrency"><img src="Currency Images/coins.png" class="headerImages"><br><figcaption class="header-captions">Coins</figcaption></th>
+					<th id="ministar-header" class="ministarCurrency"><img src="Currency Images/ministar.png" id="ministar_img" class="headerImages"><br><figcaption id="ministar-caption" class="header-captions">Ministars</figcaption></th>
+					<th id="ally-header" class="allyGame"><img src="MPSuper Textures/Ally.png" class="headerImages"><br><figcaption class="header-captions">Allies</figcaption></th>
+                    <th id="bonus-star-column1"><img id="bonus1_img" src="MPSuperstars Textures/Rich.png" class="headerImages"><figcaption class="header-captions" id="bonus1_name">Rich</figcaption></th>
+                    <th id="bonus-star-column2"><img id="bonus2_img" src="MPSuperstars Textures/Minigame.png" class="headerImages"><figcaption class="header-captions" id="bonus2_name">Minigame</figcaption></th>
+                    <th id="bonus-star-column3"><img id="bonus3_img" src="MPSuperstars Textures/Shopping.png" class="headerImages"><figcaption class="header-captions" id="bonus3_name">Shopping</figcaption></th>
+                    <th id="bonus-star-column4"><img id="bonus4_img" src="MPSuperstars Textures/Item.png" class="headerImages"><figcaption class="header-captions" id="bonus4_name">Item</figcaption></th>
+                    <th id="bonus-star-column5"><img id="bonus5_img" src="MPSuperstars Textures/Sightseer.png" class="headerImages"><figcaption class="header-captions" id="bonus5_name">Sightseer</figcaption></th>
+                    <th id="bonus-star-column6"><img id="bonus6_img" src="MPSuperstars Textures/Slowpoke.png" class="headerImages"><figcaption class="header-captions" id="bonus6_name">Slowpoke</figcaption></th>
+                    <th id="bonus-star-column7"><img id="bonus7_img" src="MPSuperstars Textures/Unlucky.png" class="headerImages"><figcaption class="header-captions" id="bonus7_name">Unlucky</figcaption></th>
+                    <th id="bonus-star-column8"><img id="bonus8_img" src="MPSuperstars Textures/Eventful.png" class="headerImages"><figcaption class="header-captions" id="bonus8_name">Eventful</figcaption></th>
+                    <th id="bonus-star-column9"><img id="bonus9_img" src="MPSuperstars Textures/Bowser Space.png" class="headerImages"><figcaption class="header-captions" id="bonus9_name">Bowser Space</figcaption></th>
+					<th id="first-header"><img src="Placement Images/1st.png" class="headerImages"></th>
+					<th id="second-header"><img src="Placement Images/2nd.png" class="headerImages"></th>
+					<th id="third-header"><img src="Placement Images/3rd.png" class="headerImages"></th>
+					<th id="fourth-header"><img src="Placement Images/4th.png" class="headerImages"></th>
+					<th id="average-header">Average<br>Ranking</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="Player Images/p1.png" class="playerImage"></td>
+                    <td id="star_P1-cell" class="classicCurrency"><input type="number" id="star_P1" oninput="validateInput(this)"></td>
+					<td id="star_teamOne-cell" style="background-color: rgb(224, 224, 224, 0.7)" rowspan=2 class="partner-party" class="classicCurrency"><input type="number" id="star_teamOne" oninput="validateInput(this)"></td>
+                    <td id="coin_P1-cell" class="classicCurrency"><input type="number" id="coin_P1" oninput="validateInput(this)"></td>
+					<td id="coin_teamOne-cell" style="background-color: rgb(224, 224, 224, 0.7)" rowspan=2 class="partner-party" class="classicCurrency"><input type="number" id="coin_teamOne" oninput="validateInput(this)"></td>
+					<td id="ministar_P1-cell" class="ministarCurrency"><input type="number" id="ministar_P1" oninput="validateInput(this)"></td>
+					<td id="ally_P1-cell" class="allyGame"><input type="number" id="ally_P1" oninput="validateInput(this)"></td>
+                    <td id="bonus1_P1-cell"><input type="checkbox" id="bonus1_P1" name="bonus1"></td>
+					<td id="minigame-teamOne-cell" class="partner-party" rowspan=2><input type="checkbox" id="minigame-team1" name="minigame-team"></td>
+                    <td id="bonus2_P1-cell"><input type="checkbox" id="bonus2_P1" name="bonus2"></td>
+                    <td id="bonus3_P1-cell"><input type="checkbox" id="bonus3_P1" name="bonus3"></td>
+					<td id="bonus4_P1-cell"><input type="checkbox" id="bonus4_P1" name="bonus4"></td>
+					<td id="bonus5_P1-cell"><input type="checkbox" id="bonus5_P1" name="bonus5"></td>
+					<td id="bonus6_P1-cell"><input type="checkbox" id="bonus6_P1" name="bonus6"></td>
+					<td id="bonus7_P1-cell"><input type="checkbox" id="bonus7_P1" name="bonus7"></td>
+					<td id="bonus8_P1-cell"><input type="checkbox" id="bonus8_P1" name="bonus8"></td>
+					<td id="bonus9_P1-cell"><input type="checkbox" id="bonus9_P1" name="bonus9"></td>
+                    <td class="first-results" class="results" id="percentage1_P1"></td>
+                    <td class="second-results" class="results" id="percentage2_P1"></td>
+                    <td class="third-results" class="results" id="percentage3_P1"></td>
+                    <td class="fourth-results" class="results" id="percentage4_P1"></td>
+					<td class="results" id="avgPlace_P1"></td>
+                </tr>
+                <tr>
+                    <td><img src="Player Images/p2.png" class="playerImage"></td>
+					<td id="star_P2-cell" class="classicCurrency"><input type="number" id="star_P2" oninput="validateInput(this)"></td>
+                    <td id="coin_P2-cell" class="classicCurrency"><input type="number" id="coin_P2" oninput="validateInput(this)"></td>
+					<td id="ministar_P2-cell" class="ministarCurrency"><input type="number" id="ministar_P2" oninput="validateInput(this)"></td>
+					<td id="ally_P2-cell" class="allyGame"><input type="number" id="ally_P2" oninput="validateInput(this)"></td>
+                    <td id="bonus1_P2-cell"><input type="checkbox" id="bonus1_P2" name="bonus1"></td>
+                    <td id="bonus2_P2-cell"><input type="checkbox" id="bonus2_P2" name="bonus2"></td>
+                    <td id="bonus3_P2-cell"><input type="checkbox" id="bonus3_P2" name="bonus3"></td>
+					<td id="bonus4_P2-cell"><input type="checkbox" id="bonus4_P2" name="bonus4"></td>
+					<td id="bonus5_P2-cell"><input type="checkbox" id="bonus5_P2" name="bonus5"></td>
+					<td id="bonus6_P2-cell"><input type="checkbox" id="bonus6_P2" name="bonus6"></td>
+					<td id="bonus7_P2-cell"><input type="checkbox" id="bonus7_P2" name="bonus7"></td>
+					<td id="bonus8_P2-cell"><input type="checkbox" id="bonus8_P2" name="bonus8"></td>
+					<td id="bonus9_P2-cell"><input type="checkbox" id="bonus9_P2" name="bonus9"></td>
+                    <td class="first-results" class="results" id="percentage1_P2"></td>
+                    <td class="second-results" class="results" id="percentage2_P2"></td>
+                    <td class="third-results" class="results" id="percentage3_P2"></td>
+                    <td class="fourth-results" class="results" id="percentage4_P2"></td>
+					<td class="results" id="avgPlace_P2"></td>
+                </tr>
+				<tr id="p3">
+                    <td><img src="Player Images/p3.png" class="playerImage"></td>
+                    <td id="star_P3-cell" class="classicCurrency"><input type="number" id="star_P3" oninput="validateInput(this)"></td>
+                    <td id="star_teamTwo-cell" style="background-color: rgb(224, 224, 224, 0.7)" rowspan=2 class="partner-party" class="classicCurrency"><input type="number" id="star_teamTwo" oninput="validateInput(this)"></td>
+					<td id="coin_P3-cell" class="classicCurrency"><input type="number" id="coin_P3" oninput="validateInput(this)"></td>
+					<td id="coin_teamTwo-cell" style="background-color: rgb(224, 224, 224, 0.7)" rowspan=2 class="partner-party" class="classicCurrency"><input type="number" id="coin_teamTwo" oninput="validateInput(this)"></td>
+					<td id="ministar_P3-cell" class="ministarCurrency"><input type="number" id="ministar_P3" oninput="validateInput(this)"></td>
+					<td id="ally_P3-cell" class="allyGame"><input type="number" id="ally_P3" oninput="validateInput(this)"></td>
+                    <td id="bonus1_P3-cell"><input type="checkbox" id="bonus1_P3" name="bonus1"></td>
+					<td id="minigame-teamTwo-cell" class="partner-party" rowspan=2><input type="checkbox" id="minigame-team2" name="minigame-team"></td>
+                    <td id="bonus2_P3-cell"><input type="checkbox" id="bonus2_P3" name="bonus2"></td>
+                    <td id="bonus3_P3-cell"><input type="checkbox" id="bonus3_P3" name="bonus3"></td>
+					<td id="bonus4_P3-cell"><input type="checkbox" id="bonus4_P3" name="bonus4"></td>
+					<td id="bonus5_P3-cell"><input type="checkbox" id="bonus5_P3" name="bonus5"></td>
+					<td id="bonus6_P3-cell"><input type="checkbox" id="bonus6_P3" name="bonus6"></td>
+					<td id="bonus7_P3-cell"><input type="checkbox" id="bonus7_P3" name="bonus7"></td>
+					<td id="bonus8_P3-cell"><input type="checkbox" id="bonus8_P3" name="bonus8"></td>
+					<td id="bonus9_P3-cell"><input type="checkbox" id="bonus9_P3" name="bonus9"></td>
+                    <td class="first-results" class="results" id="percentage1_P3"></td>
+                    <td class="second-results" class="results" id="percentage2_P3"></td>
+                    <td class="third-results" class="results" id="percentage3_P3"></td>
+                    <td class="fourth-results" class="results" id="percentage4_P3"></td>
+					<td class="results" id="avgPlace_P3"></td>
+                </tr>
+				<tr id="p4">
+                    <td><img src="Player Images/p4.png" class="playerImage"></td>
+                    <td id="star_P4-cell" class="classicCurrency"><input type="number" id="star_P4" oninput="validateInput(this)"></td>
+                    <td id="coin_P4-cell" class="classicCurrency"><input type="number" id="coin_P4" oninput="validateInput(this)"></td>
+					<td id="ministar_P4-cell" class="ministarCurrency"><input type="number" id="ministar_P4" oninput="validateInput(this)"></td>
+					<td id="ally_P4-cell" class="allyGame"><input type="number" id="ally_P4" oninput="validateInput(this)"></td>
+                    <td id="bonus1_P4-cell"><input type="checkbox" id="bonus1_P4" name="bonus1"></td>
+                    <td id="bonus2_P4-cell"><input type="checkbox" id="bonus2_P4" name="bonus2"></td>
+                    <td id="bonus3_P4-cell"><input type="checkbox" id="bonus3_P4" name="bonus3"></td>
+					<td id="bonus4_P4-cell"><input type="checkbox" id="bonus4_P4" name="bonus4"></td>
+					<td id="bonus5_P4-cell"><input type="checkbox" id="bonus5_P4" name="bonus5"></td>
+					<td id="bonus6_P4-cell"><input type="checkbox" id="bonus6_P4" name="bonus6"></td>
+					<td id="bonus7_P4-cell"><input type="checkbox" id="bonus7_P4" name="bonus7"></td>
+					<td id="bonus8_P4-cell"><input type="checkbox" id="bonus8_P4" name="bonus8"></td>
+					<td id="bonus9_P4-cell"><input type="checkbox" id="bonus9_P4" name="bonus9"></td>
+                    <td class="first-results" class="results" id="percentage1_P4"></td>
+                    <td class="second-results" class="results" id="percentage2_P4"></td>
+                    <td class="third-results" class="results" id="percentage3_P4"></td>
+                    <td class="fourth-results" class="results" id="percentage4_P4"></td>
+					<td class="results" id="avgPlace_P4"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="simulateButton" onclick="simulateGame()">Simulate Game</button>
+    </div>
+</body>
+</html>
