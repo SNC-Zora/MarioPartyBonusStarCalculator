@@ -18,10 +18,10 @@ function autofillZeros() {
 
 function changeMinistar() {
 	if (document.getElementById("dk-select").value == 1) {
-		document.getElementById("ministar_img").src = "Currency Images/banana.png";
+		document.getElementById("ministar_img").src = "Currency Images/bananas.png";
 		document.getElementById("ministar-caption").innerText = "Bananas";
 	} else {
-		document.getElementById("ministar_img").src = "Currency Images/ministar.png";
+		document.getElementById("ministar_img").src = "Currency Images/ministars.png";
 		document.getElementById("ministar-caption").innerText = "Ministars";
 	}	
 }
