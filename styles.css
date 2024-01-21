@@ -315,10 +315,12 @@ td:not(.classicCurrency):not(.ministarCurrency):not(.allyGame):not(.first-result
 
 	#background {
 		position: fixed;
-		width: 100%;
-		height: 100%;
-		object-fit: fill;
+		width: 100vw;
+		height: 100vh;
 		z-index: -1;
+		object-fit: fill;
+		top: 0;
+		left: 0;
 	}
 
 	#calculator {
