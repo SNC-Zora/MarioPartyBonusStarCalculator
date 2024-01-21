@@ -54,7 +54,7 @@ function changeBonusStarNames(bonusStarCount) {
 	}
 
 	for (let i = 1; i <= bonusStarCount; i++) {
-		document.getElementById(`bonus${i}_img`).src = "MP" + game + " Textures/" + names[i-1] + ".png";
+		document.getElementById(`bonus${i}_img`).src = "MP" + game + " Textures/" + names[i-1].toLowerCase() + ".png";
 		document.getElementById(`bonus${i}_name`).innerText = names[i-1];
 	}
 }
